@@ -48,7 +48,7 @@ define(['browser'], function (browser) {
             throw new Error('`urls` required');
         }
 
-        if (typeof document.createElement('a').download === 'undefined') {
+        if (!browser.iOS && typeof document.createElement('a').download === 'undefined') {
             return fallback(urls);
         }
 
